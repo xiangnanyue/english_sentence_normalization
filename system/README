@@ -1,0 +1,25 @@
+Author : Xiangnan YUE
+Time : 02/18/2018
+
+- Use of the system
+
+Put the corpus data “CorpusBataclan_en.1M.raw.txt” under the “english_normalisation”.
+
+Set in the bash the global name to indicate the path of file, eg : 
+MODEL_NAME="context2vec.ukwac.model.package/context2vec.ukwac.model"
+TRAIN_DATA='CorpusBataclan_en.1M.raw.txt'
+
+You can simply “cd” to “english_normalisation” repository and run “python2.7 normalize.py --head=30 --output_dir=./output.txt --model_dir=$MODEL_NAME.params --train_dir=$TRAIN_DATA” to test 30 lines in the Corpus data. The normalized 10 sentences will be stored in the “output.txt”.
+Otherwise, try the  “./run_system.sh $MODEL_NAME $TRAIN_DATA ” directly.
+To test on the whole corpus, try “python2.7 normalize.py --test=False --output_dir=./output.txt --model_dir=$MODEL_NAME.params --train_dir=$TRAIN_DATA”
+
+for more detail, run "python2.7 normalized.py" with the following parametres :
+
+--test : whether to test or not, if args.test is "True", only first args.head lines will be tested and output the normalized lines in the output file
+--head : how many lines of the train file to test if test is True.
+--output_dir : path of the output file.
+--model_dir : path of the context information model.
+--train_dir : the path of the train file.
+--dictionary_dir : the path of the lexicon dictionary words.txt
+
+Contact me by mail : xiangnanyue@gmail.com if anything got wrong.
